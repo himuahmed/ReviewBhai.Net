@@ -231,7 +231,7 @@
         /////////////////Post reactions
 
         function createPostReaction(postId, userId, like, helpful) {
-            commentReactionUrl = "http://localhost:55407/api/Review/CreateReaction/";
+            commentReactionUrl = "/api/Review/CreateReaction/";
             //commentReactionUrl = "http://reviewbhai.somee.com/api/Review/CreateReaction/";
             postId = postId
             userId = userId
@@ -262,7 +262,7 @@
         }
 
         function deletePostReaction(postId, reactionId) {
-            postReactionUrl = "http://localhost:55407/api/Review/DeleteReaction/" + String(reactionId);
+            postReactionUrl = "/api/Review/DeleteReaction/" + String(reactionId);
             // postReactionUrl = "http://reviewbhai.somee.com/api/Review/DeleteReaction/" + String(reactionId);
             $.ajax({
                 url: postReactionUrl,
@@ -280,7 +280,7 @@
 
 
         function updatePostReaction(postId, userId, like, helpful, reactionId) {
-            commentReactionUrl = "http://localhost:55407/api/Review/UpdateReaction/" + String(reactionId);
+            commentReactionUrl = "/api/Review/UpdateReaction/" + String(reactionId);
             //commentReactionUrl = "http://reviewbhai.somee.com/api/Review/UpdateReaction/" + String(reactionId);
             postId = postId
             userId = userId
@@ -323,7 +323,7 @@
             isHelpful = "postHelpful" + String(postId);
             var userId = $("#userId").val();
             console.log("postid = " + postId);
-            postReactionUrl = "http://localhost:55407/api/Review/GetReaction/" + String(postId);
+            postReactionUrl = "/api/Review/GetReaction/" + String(postId);
             //postReactionUrl = "http://reviewbhai.somee.com/api/Review/GetReaction/" + String(postId);
             $.ajax({
                 url: postReactionUrl,
@@ -485,7 +485,7 @@
 
         function getPostTotalReaction(postId) {
             var userId = $("#userId").val();
-            postReactionsUrl = "http://localhost:55407/api/Review/GetReaction/" + String(postId);
+            postReactionsUrl = "/api/Review/GetReaction/" + String(postId);
             //postReactionsUrl = "http://reviewbhai.somee.com/api/Review/GetReaction/" + String(postId);
             $.ajax({
                 url: postReactionsUrl,
@@ -536,7 +536,7 @@
 
         function getCommentsTotalReaction(Id) {
             var userId = $("#userId").val();
-            getCommentsTotalReactionUrl = "http://localhost:55407/api/Review/GetACommentReactions/" + String(Id);
+            getCommentsTotalReactionUrl = "/api/Review/GetACommentReactions/" + String(Id);
             //getCommentsTotalReactionUrl = "http://reviewbhai.somee.com/api/Review/GetACommentReactions/" + String(Id);
             $.ajax({
                 url: getCommentsTotalReactionUrl,
@@ -580,7 +580,7 @@
 
         function getRepliesTotalReaction(Id) {
             var userId = $("#userId").val();
-            getRepliesTotalReactionUrl = "http://localhost:55407/api/Review/GetAReplyReactions/" + String(Id);
+            getRepliesTotalReactionUrl = "/api/Review/GetAReplyReactions/" + String(Id);
             //getRepliesTotalReactionUrl = "http://reviewbhai.somee.com/api/Review/GetAReplyReactions/" + String(Id);
             $.ajax({
                 url: getRepliesTotalReactionUrl,
@@ -622,7 +622,7 @@
         /////// Comment & reply reaction
 
         function deleteCommentReaction(reactionId, commentId) {
-            commentReactionUrl = "http://localhost:55407/api/Review/DeleteACommentReaction/" + String(reactionId);
+            commentReactionUrl = "/api/Review/DeleteACommentReaction/" + String(reactionId);
             //commentReactionUrl = "http://reviewbhai.somee.com/api/Review/DeleteACommentReaction/" + String(reactionId);
             $.ajax({
                 url: commentReactionUrl,
@@ -641,7 +641,7 @@
 
 
         function deleteReplyReaction(replyId, commentId) {
-            replyReactionUrl = "http://localhost:55407/api/Review/DeleteAReplyReaction/" + String(replyId);
+            replyReactionUrl = "/api/Review/DeleteAReplyReaction/" + String(replyId);
             //replyReactionUrl = "http://reviewbhai.somee.com/api/Review/DeleteAReplyReaction/" + String(replyId);
             $.ajax({
                 url: replyReactionUrl,
@@ -660,7 +660,7 @@
 
 
         function postCommentReaction(commentId, userId, like, helpful) {
-            commentReactionUrl = "http://localhost:55407/api/Review/PostACommentReaction";
+            commentReactionUrl = "/api/Review/PostACommentReaction";
             // commentReactionUrl = "http://reviewbhai.somee.com/api/Review/PostACommentReaction";
             commentId = commentId
             userId = userId
@@ -692,7 +692,7 @@
 
 
         function postReplyReaction(commentId, userId, like, helpful) {
-            replyReactionUrl = "http://localhost:55407/api/Review/PostAReplyReaction";
+            replyReactionUrl = "/api/Review/PostAReplyReaction";
             //replyReactionUrl = "http://reviewbhai.somee.com/api/Review/PostAReplyReaction";
             commentId = commentId
             userId = userId
@@ -725,7 +725,7 @@
 
 
         function updateCommentReaction(commentId, userId, like, helpful, reactionId) {
-            commentReactionUrl = "http://localhost:55407/api/Review/UpdateACommentReaction/" + String(reactionId);
+            commentReactionUrl = "/api/Review/UpdateACommentReaction/" + String(reactionId);
             //commentReactionUrl = "http://reviewbhai.somee.com/api/Review/UpdateACommentReaction/" + String(reactionId);
             commentId = commentId
             userId = userId
@@ -757,7 +757,7 @@
 
 
         function updateReplyReaction(commentId, userId, like, helpful, reactionId) {
-            commentReactionUrl = "http://localhost:55407/api/Review/UpdateAReplyReaction/" + String(reactionId);
+            commentReactionUrl = "/api/Review/UpdateAReplyReaction/" + String(reactionId);
             //commentReactionUrl = "http://reviewbhai.somee.com/api/Review/UpdateAReplyReaction/" + String(reactionId);
             commentId = commentId
             userId = userId
@@ -797,7 +797,7 @@
             console.log("this is the value of xxxxxxxxxxxxx");
             commentLikeId = "commentLike" + String(id);
             commentDisLikeId = "commentDisLike" + String(id);
-            commentReactionsenUrl = "http://localhost:55407/api/Review/GetACommentReactions/" + String(id);
+            commentReactionsenUrl = "/api/Review/GetACommentReactions/" + String(id);
             //commentReactionsenUrl = "http://reviewbhai.somee.com/api/Review/GetACommentReactions/" + String(id);
 
             $.ajax({
@@ -877,7 +877,7 @@
             console.log("this is the value of xxxxxxxxxxxxx");
             replyLikeId = "replyLike" + String(id);
             replyDisLikeId = "replyDisLike" + String(id);
-            replyReactionsenUrl = "http://localhost:55407/api/Review/GetAReplyReactions/" + String(id);
+            replyReactionsenUrl = "/api/Review/GetAReplyReactions/" + String(id);
             //replyReactionsenUrl = "http://reviewbhai.somee.com/api/Review/GetAReplyReactions/" + String(id);
 
             $.ajax({
@@ -950,7 +950,7 @@
         function deleteComment(x, id, postId, post) {
             var y = confirm("Delete this comment ?");
             commentDel = "commentDelete" + String(id);
-            deleteUrl = "http://localhost:55407/api/Review/DeleteAComment/" + String(id);
+            deleteUrl = "/api/Review/DeleteAComment/" + String(id);
             //deleteUrl = "http://reviewbhai.somee.com/api/Review/DeleteAComment/" + String(id);
             if (commentDel == x.id) {
                 if (y) {
@@ -974,7 +974,7 @@
         function deleteReply(x, id, postId, post) {
             var y = confirm("Delete this comment ?");
             replyDel = "replyDelete" + String(id);
-            deleteUrl = "http://localhost:55407/api/Review/DeleteAReplyInAComment/" + String(id);
+            deleteUrl = "/api/Review/DeleteAReplyInAComment/" + String(id);
             //deleteUrl = "http://reviewbhai.somee.com/api/Review/DeleteAReplyInAComment/" + String(id);
             console.log(postId);
             console.log("abovvvvvvvvvvvvvvvvvvvvveeeeeeeeeeeeeee");
@@ -1019,7 +1019,7 @@
         function getAllComments(postId, post) {
             postId = postId;
             var userId = $("#userId").val();
-            getAllCommentsUrl = "http://localhost:55407/api/Review/GetComment/" + String(postId);
+            getAllCommentsUrl = "/api/Review/GetComment/" + String(postId);
             //getAllCommentsUrl = "http://reviewbhai.somee.com/api/Review/GetComment/" + String(postId);
             $.ajax({
                 url: getAllCommentsUrl,
@@ -1047,16 +1047,16 @@
                                                                                                                                         <div class="media-body">
                                                                                                                                             <div class="row">
                                                                                                                                                 <div class="col-12 d-flex">
-                                                                                                                                                    <h6 style="background-color: #f0f1f2;border-radius: 50px;  padding: 7px 15px 7px 15px;"><a href="#">${capitalizeFirstLetter(postcomment[i].ApplicationUser.Name)}</a>&nbsp; <span>${postcomment[i].Text} </span></h6>    ${commentDelCheck(postcomment[i].Id, postcomment[i].ApplicationUser.Id, postId, postId, post)}
+                                                                                                                                                    <h6 style="background-color: #f0f1f2;border-radius: 50px;  padding: 7px 15px 7px 15px;"><a href="#">${capitalizeFirstLetter(postcomment[i].ApplicationUser.Name)}</a>&nbsp; <span style="font-weight: normal;">${postcomment[i].Text} </span></h6>    ${commentDelCheck(postcomment[i].Id, postcomment[i].ApplicationUser.Id, postId, postId, post)}
                                                                                                                                                 </div>
 
-                                                                                                                                            </div><span class="text-muted" style="font-size:12px"> Id: ${postcomment[i].Id}</span>
+                                                                                                                                            </div>
                                                                                                                                             <div>
-                                                                                                                                              <i id="commentLike${postcomment[i].Id}" onclick="commentsReaction(this,${postcomment[i].Id})" class="fa fa-thumbs-up"></i>
-                                                                                                                                               <span id="totalCommentLikes${postcomment[i].Id}">${total_comment_reply_like(postcomment[i].CommentReactions)}</span>
+                                                                                                                                              <i id="commentLike${postcomment[i].Id}" onclick="commentsReaction(this,${postcomment[i].Id})" class="fa fa-thumbs-up fa-sm" style="color:gray;font-size: 0.8rem;"></i>
+                                                                                                                                               <span style="color:black;font-size: 0.8rem;" id="totalCommentLikes${postcomment[i].Id}">${total_comment_reply_like(postcomment[i].CommentReactions)}</span>
 
-                                                                                                                                              <i id="commentDisLike${postcomment[i].Id}" onclick="commentsReaction(this,${postcomment[i].Id})" class="fa fa-thumbs-down"></i>
-                                                                                                                                               <span id="totalCommentDisLikes${postcomment[i].Id}">${total_comment_reply_dislike(postcomment[i].CommentReactions)}</span>
+                                                                                                                                              <i id="commentDisLike${postcomment[i].Id}" onclick="commentsReaction(this,${postcomment[i].Id})" class="fa fa-thumbs-down fa-sm" style="color:gray;font-size: 0.8rem;"></i>
+                                                                                                                                               <span style="color:gray;font-size: 0.8rem;" id="totalCommentDisLikes${postcomment[i].Id}">${total_comment_reply_dislike(postcomment[i].CommentReactions)}</span>
                                                                                                                                             </div>
                                                                                                                                         </div>
                                                                                                                                     </div>
@@ -1081,37 +1081,37 @@
                                                                                                                                                 <div class="media-body">
                                                                                                                                                     <div class="row">
                                                                                                                                                         <div class="col-12 d-flex" >
-                                                                                                                                                            <h6 style="background-color: #f0f1f2;border-radius: 50px;  padding: 7px 15px 7px 15px;"><a href="#">${ capitalizeFirstLetter(postcomment[i].SubComments[j].ApplicationUser.Name)}</a>&nbsp; <span>${postcomment[i].SubComments[j].Text}</span></h6>${replyDelCheck(postcomment[i].SubComments[j].Id, postcomment[i].SubComments[j].ApplicationUser.Id, postId, post)}
+                                                                                                                                                            <h6 style="background-color: #f0f1f2;border-radius: 50px;  padding: 7px 15px 7px 15px;"><a href="#">${ capitalizeFirstLetter(postcomment[i].SubComments[j].ApplicationUser.Name)}</a>&nbsp; <span style="font-weight: normal;">${postcomment[i].SubComments[j].Text}</span></h6>${replyDelCheck(postcomment[i].SubComments[j].Id, postcomment[i].SubComments[j].ApplicationUser.Id, postId, post)}
                                                                                                                                                         </div>
-                                                                                                                                                    </div> <span class="text-muted" style="font-size:12px"> Id: ${postcomment[i].SubComments[j].Id}</span>
+                                                                                                                                                    </div>
                                                                                                                                             <div>
-                                                                                                                                               <i id="replyLike${postcomment[i].SubComments[j].Id}" onclick="replyReaction(this,${postcomment[i].SubComments[j].Id})" class="fa fa-thumbs-up"></i>
-                                                                                                                                                <span id="totalReplyLikes${postcomment[i].SubComments[j].Id}">${total_comment_reply_like(postcomment[i].SubComments[j].ReplyReactions)}</span>
-                                                                                                                                              <i id="replyDisLike${postcomment[i].SubComments[j].Id}" onclick="replyReaction(this,${postcomment[i].SubComments[j].Id})" class="fa fa-thumbs-down"></i>
-                                                                                                                                               <span id="totalReplyDisLikes${postcomment[i].SubComments[j].Id}">${total_comment_reply_dislike(postcomment[i].SubComments[j].ReplyReactions)}</span>
+                                                                                                                                               <i id="replyLike${postcomment[i].SubComments[j].Id}" onclick="replyReaction(this,${postcomment[i].SubComments[j].Id})" class="fa fa-thumbs-up fa-sm" style="color:gray;font-size: 0.8rem;"></i>
+                                                                                                                                                <span style="color:gray;font-size: 0.8rem;" id="totalReplyLikes${postcomment[i].SubComments[j].Id}">${total_comment_reply_like(postcomment[i].SubComments[j].ReplyReactions)}</span>
+                                                                                                                                              <i id="replyDisLike${postcomment[i].SubComments[j].Id}" onclick="replyReaction(this,${postcomment[i].SubComments[j].Id})" class="fa fa-thumbs-down fa-sm" style="color:gray;font-size: 0.8rem;"></i>
+                                                                                                                                               <span style="color:gray;font-size: 0.8rem;" id="totalReplyDisLikes${postcomment[i].SubComments[j].Id}">${total_comment_reply_dislike(postcomment[i].SubComments[j].ReplyReactions)}</span>
                                                                                                                                             </div>
                                                                                                                                                 </div>
 
                                                                                                                                             </div>`);
                                 }
-                                var commentandsubcomment = subcomment.slice(0, -1).join(' &nbsp; ') + '  ' + subcomment.slice(-1);
+                                var commentandsubcomment = subcomment.slice(0, -1).join('') + '  ' + subcomment.slice(-1);
                                 var subcomment = [];
                                 comments.push(`<div class="col-md-12">
                                                                                                                                     <div class="media"> <img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" src="https://i.imgur.com/stD0Q19.jpg" />
                                                                                                                                         <div class="media-body">
                                                                                                                                             <div class="row">
                                                                                                                                                 <div class="col-12 d-flex">
-                                                                                                                                                    <h6 style="background-color: #f0f1f2;border-radius: 50px;  padding: 7px 15px 7px 15px;"><a href="#">${capitalizeFirstLetter(postcomment[i].ApplicationUser.Name)}</a> &nbsp; <span>${postcomment[i].Text}</span></h6>${commentDelCheck(postcomment[i].Id, postcomment[i].ApplicationUser.Id, postId, post)}
+                                                                                                                                                    <h6 style="background-color: #f0f1f2;border-radius: 50px;  padding: 7px 15px 7px 15px;"><a href="#">${capitalizeFirstLetter(postcomment[i].ApplicationUser.Name)}</a> &nbsp; <span style="font-weight: normal;">${postcomment[i].Text}</span></h6>${commentDelCheck(postcomment[i].Id, postcomment[i].ApplicationUser.Id, postId, post)}
                                                                                                                                                 </div>
                                                                                                                                             </div>
                                                                                                                                             <div>
-                                                                                                                                               <i id="commentLike${postcomment[i].Id}" onclick="commentsReaction(this,${postcomment[i].Id})" class="fa fa-thumbs-up"></i>
-                                                                                                                                                <span id="totalCommentLikes${postcomment[i].Id}">${total_comment_reply_like(postcomment[i].CommentReactions)}</span>
+                                                                                                                                               <i id="commentLike${postcomment[i].Id}" onclick="commentsReaction(this,${postcomment[i].Id})" class="fa fa-thumbs-up fa-sm" style="color:gray;font-size: 0.8rem;"></i>
+                                                                                                                                                <span style="color:gray;font-size: 0.8rem;" id="totalCommentLikes${postcomment[i].Id}">${total_comment_reply_like(postcomment[i].CommentReactions)}</span>
 
-                                                                                                                                              <i id="commentDisLike${postcomment[i].Id}" onclick="commentsReaction(this,${postcomment[i].Id})" class="fa fa-thumbs-down"></i>
-                                                                                                                                               <span id="totalCommentDisLikes${postcomment[i].Id}">${total_comment_reply_dislike(postcomment[i].CommentReactions)}</span>
+                                                                                                                                              <i id="commentDisLike${postcomment[i].Id}" onclick="commentsReaction(this,${postcomment[i].Id})" class="fa fa-thumbs-down fa-sm" style="color:gray;font-size: 0.8rem;"></i>
+                                                                                                                                               <span style="color:gray;font-size: 0.8rem;" id="totalCommentDisLikes${postcomment[i].Id}">${total_comment_reply_dislike(postcomment[i].CommentReactions)}</span>
                                                                                                                                             </div>
-                                                                                                                                            <span class="text-muted" style="font-size:12px">  Id: ${postcomment[i].Id}</span>  ${commentandsubcomment}
+                                                                                                                                             ${commentandsubcomment}
                                                                                                                                         </div>
 
                                                                                                                                     </div>
@@ -1167,7 +1167,7 @@
             if (commentText.replace(/^\s+|\s+$/g, "").length != 0) {
                 $.ajax({
                     //url: 'http://reviewbhai.somee.com/api/Review/PostAComment',
-                    url: 'http://localhost:55407/api/Review/PostAComment',
+                    url: '/api/Review/PostAComment',
                     type: 'POST',
                     contentType: 'application/json',
                     headers: {
@@ -1207,7 +1207,7 @@
             if (commentText.replace(/^\s+|\s+$/g, "").length != 0) {
                 $.ajax({
                     // url: 'http://reviewbhai.somee.com/api/Review/PostAReplayAComment/',
-                    url: 'http://localhost:55407/api/Review/PostAReplayAComment/',
+                    url: '/api/Review/PostAReplayAComment/',
                     type: 'POST',
                     contentType: 'application/json',
                     headers: {
@@ -1228,7 +1228,7 @@
 
         function deletePost(postId) {
             var x = confirm("Delete the post ?");
-            var deleteUrl = "http://localhost:55407/api/Review/DeletePost/" + postId;
+            var deleteUrl = "/api/Review/DeletePost/" + postId;
             //var deleteUrl = "http://reviewbhai.somee.com/api/Review/DeletePost/" + postId;
             if (x) {
                 $.ajax({
@@ -1250,10 +1250,10 @@
             console.log("id of this buton = " + reviewId);
 
             if (x.id == "editPost") {
-                document.getElementById("post_up_button").innerHTML = `<button id="updatePost" onclick="createReview(this,${reviewId})" class="btn btn-info">Update</button>`;
+                document.getElementById("post_up_button").innerHTML = `<button style="margin-top: 15px;" id="updatePost" onclick="createReview(this,${reviewId})" class="btn btn-info">Update</button>`;
             }
             else {
-                document.getElementById("post_up_button").innerHTML = `<button id="createPost" onclick="createReview(this)" class="btn btn-info">Post</button>`;
+                document.getElementById("post_up_button").innerHTML = `<button style="margin-top: 15px;" id="createPost" onclick="createReview(this)" class="btn btn-info">Post</button>`;
             }
         }
 
@@ -1265,7 +1265,7 @@
 
         function postEdit(reviewId, posterId) {
             userId = $("#userId").val();
-            reviewUrl = "http://localhost:55407/api/Review/GetReviewPost/" + String(reviewId);
+            reviewUrl = "/api/Review/GetReviewPost/" + String(reviewId);
             //reviewUrl = "http://reviewbhai.somee.com/api/Review/GetReviewPost/" + String(id);
 
             //$(".choices__inner").remove();
@@ -1471,8 +1471,7 @@
         </div>*@
     <div class="row col-lg-8 offset-lg-3" style="padding-top:20px">
         <div class="input-group">
-            <input class="form-control" type="text" placeholder="Write a review">
-            <span><a class="btn btn-primary" data-toggle="modal" onclick="buttonUpdate(this)" data-target="#myModal1" href="#" role="button">Post</a></span>
+            <input class="form-control" type="text" placeholder="Write a review" data-toggle="modal" onclick="buttonUpdate(this)" data-target="#myModal1">
         </div>
     </div>
 
@@ -1488,14 +1487,10 @@
     <div class="modal fade" id="myModal1">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title text-xs-center">Write Review</h4>
-                </div>
                 <div class="modal-body">
                     <div class="content-section" id="reviewForm">
                         @RenderPage("~/Views/ReviewGetPost/CreateReview.cshtml")
                         <div id="post_up_button">
-
                         </div>
                     </div>
                 </div>
@@ -1524,7 +1519,7 @@
 
             if (sessionStorage.getItem('accessToken') == null) {
                 // window.location.href = "http://reviewbhai.somee.com/user/signin";
-                window.location.href = "http://localhost:55407/user/signin";
+                window.location.href = "/user/signin";
             }
 
 
@@ -1539,7 +1534,7 @@
             //$('#btnLoadEmployees').click(function () {
             $.ajax({
                 //url: 'http://reviewbhai.somee.com/api/Review/GetReviewPosts',
-                url: 'http://localhost:55407/api/Review/GetReviewPosts',
+                url: '/api/Review/GetReviewPosts',
                 method: 'GET',
                 headers: {
                     'Authorization': 'Bearer '
