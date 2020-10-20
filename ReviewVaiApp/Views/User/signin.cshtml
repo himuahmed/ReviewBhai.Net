@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "signin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <!--===============================================================================================-->
+    <link href="~/Content/login_signup/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="~/Content/login_signup/fonts/iconic/css/material-design-iconic-font.min.css" rel="stylesheet" />
+
+    <link href="~/Content/login_signup/vendor/animate/animate.css" rel="stylesheet" />
+
+    <link href="~/Content/login_signup/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" />
+
+    <link href="~/Content/login_signup/vendor/animsition/css/animsition.min.css" rel="stylesheet" />
+
+    <link href="~/Content/login_signup/vendor/select2/select2.min.css" rel="stylesheet" />
+
+    <link href="~/Content/login_signup/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" />
+
+    <link href="~/Content/login_signup/css/main.css" rel="stylesheet" />
+    <link href="~/Content/login_signup/css/util.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+
+
+    <div class="form-horizontal">
+       
+        <div class="limiter">
+            <!--<div class="container-login100" style="background-image: url('../../Content/images/bg-01.jpg');">-->
+            <div class="container-login100" style="background-color: ffffff;">
+                <div class="wrap-login100 p-l-55 p-r-55 p-t-20 p-b-40">
+                    @*<form class="login100-form validate-form">*@
+                    <span class="login100-form-title p-b-49">
+                        Log In
+                    </span>
+
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Email is reauired">
+                        <span class="label-input100">Email</span>
+                        <input class="input100" type="text" name="Email" id="email" placeholder="Type your Email">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                        @*@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })*@
+                    </div>
+
+
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Password is required">
+                        <span class="label-input100">Password</span>
+                        <input class="input100" type="password" name="Password" id="password" placeholder="Type your password">
+                        <span class="focus-input100" data-symbol="&#xf190;"></span>
+                        @*@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })*@
+                    </div>
+
+                    <!--Bootstrap alert to display error message if the login fails-->
+                    <div id="error" class="alert alert-danger collapse">
+                        <a id="linkClose" href="#" class="close">&times;</a>
+                        <div id="alertText"></div>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="login100-form-btn" id="loginbtn" value="Login">
+                                Sign In
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="txt1 text-center p-t-30 p-b-10">
+                        <span>
+                            Or Sign in Using
+                        </span>
+                    </div>
+
+                    <div class="flex-c-m">
+                        <a href="#" class="login100-social-item bg1">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+
+                        <a href="#" class="login100-social-item bg2">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+
+                        <a href="#" class="login100-social-item bg3">
+                            <i class="fa fa-google"></i>
+                        </a>
+                    </div>
+                    <div class="txt1 text-center p-t-20 p-b-2">
+                        <span>
+                            Don't have any account ? &nbsp
+                            <a href="#" class="txt2">
+                                Sign up
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#linkClose').click(function () {
+                $('#error').hide('fade');
+            });
+
+            $('#loginbtn').click(function () {
+                $.ajax({
+                    // Post username, password & the grant type to /token
+                    url: '/Token',
+                    method: 'POST',
+                    contentType: 'application/x-www-form-urlencoded',
+                    data: $.param({ grant_type: 'password', username: $("#email").val(), password: $("#password").val() }),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    success: function (response) {
+                        sessionStorage.setItem("accessToken", response.access_token);
+                        window.location.href = "http://localhost:55407";
+                        //window.location.href = "http://reviewbhai.somee.com/";
+                    },
+                    // Display errors if any in the Bootstrap alert <div>
+                    error: function () {
+                        //$('#divErrorText').text(jqXHR.responseText);
+                        //$('#divError').show('fade');
+                        $("#alertText").text("Failed to authenticate user.");
+                        $('#error').show('fade');
+
+                    }
+                });
+            });
+        });
+        </script>
+
+
+    </div>
+}

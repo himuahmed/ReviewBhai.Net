@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "logout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        sessionStorage.removeItem('accessToken');
+        window.location.href = "http://localhost:55407";
+        //window.location.href = "http://reviewbhai.somee.com/";
+     
+    });  
+</script>
