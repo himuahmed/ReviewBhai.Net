@@ -1,0 +1,49 @@
+﻿
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+#content {
+    height: 40rem;
+}
+
+#left {
+    float: left;
+    width: 30%;
+    background-color: #FFFFFF;
+    max-height: 100%;
+    scrollbar-width: none;
+    padding-right:5%
+}
+
+
+#middle {
+    float: left;
+    width: 40%;
+    background-color: #FFFFFF;
+    max-height: 150%;
+    overflow-y: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    scrollbar-width: none;
+}
+
+#right {
+    float: left;
+    width: 30%;
+    background-color: #FFFFFF;
+    max-height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    scrollbar-width: none;
+}

@@ -286,6 +286,8 @@
     <Content Include="Content\bootstrap-select.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\layout\layout.css" />
+    <Content Include="Content\layout\promotionCards.css" />
     <Content Include="Content\login_signup\css\main.css" />
     <Content Include="Content\login_signup\css\util.css" />
     <Content Include="Content\login_signup\fonts\font-awesome-4.7.0\css\font-awesome.css" />
