@@ -26,13 +26,13 @@ namespace ReviewVaiApp.Controllers
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
-	{
-		private ApplicationDbContext db = new ApplicationDbContext();
-		private const string LocalLoginProvider = "Local";
+    {
+        private ApplicationDbContext db = new ApplicationDbContext();
+        private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
-		private object config;
+        private object config;
 
-		public AccountController()
+        public AccountController()
         {
         }
 
@@ -56,7 +56,7 @@ namespace ReviewVaiApp.Controllers
         }
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
-		
+
 
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
@@ -72,21 +72,21 @@ namespace ReviewVaiApp.Controllers
                 LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
             };
         }
-		[Authorize]
-		public IHttpActionResult GetLogIns()
-		{
-			
-			if (User.Identity.IsAuthenticated)
-			{
-				var name = User.Identity.GetUserName();
-			
-				
-				return Ok();
-			}
-			return Ok();
-		}
-		// POST api/Account/Logout
-		[Route("Logout")]
+        [Authorize]
+        public IHttpActionResult GetLogIns()
+        {
+
+            if (User.Identity.IsAuthenticated)
+            {
+                var name = User.Identity.GetUserName();
+
+
+                return Ok();
+            }
+            return Ok();
+        }
+        // POST api/Account/Logout
+        [Route("Logout")]
         public IHttpActionResult Logout()
         {
             Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
@@ -144,7 +144,7 @@ namespace ReviewVaiApp.Controllers
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -277,9 +277,9 @@ namespace ReviewVaiApp.Controllers
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
@@ -390,7 +390,7 @@ namespace ReviewVaiApp.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }
@@ -405,58 +405,59 @@ namespace ReviewVaiApp.Controllers
 
             base.Dispose(disposing);
         }
-		
-		[HttpGet]
-		public IHttpActionResult GetUsers()
-		{
-			//((DefaultContractResolver)config.Formatters.JsonFormatter.SerializerSettings.ContractResolver).IgnoreSerializableAttribute = true;
-			var users = UserManager.Users.ToList();
-			if(users==null)
-			{
-				return BadRequest();
-			}
-			return Ok(users);
-		}
-		[HttpGet]
-		public IHttpActionResult GetAUser(string id)
-		{
-			var user = UserManager.Users.Where(i => i.Id == id).FirstOrDefault();
-			if(user==null)
-			{
-				return NotFound();
-			}
-			return Ok(user);
-		}
-		[HttpDelete]
-		public IHttpActionResult DeleteAUser(string id)
-		{
-			var user = db.Users.Where(i => i.Id == id).FirstOrDefault();
-			if (user == null)
-			{
-				return NotFound();
-			}
-			db.Users.Remove(user);
-			db.SaveChanges();
-			return Ok();
-		}
-		[HttpPut]
-		public IHttpActionResult UpdateUser(UpdateUserViewModel userViewModel)
-		{
-			var errors = ModelState.Values.SelectMany(v => v.Errors);
-			if (!ModelState.IsValid)
-			{
-				return BadRequest();
-			}
-			var id = User.Identity.GetUserId();
-			var user = db.Users.Where(i => i.Id == id).FirstOrDefault();
-			user.Name = userViewModel.Name;
-			user.Email = userViewModel.Email;
-			user.Location = userViewModel.Location;
-			user.Contact = userViewModel.Contact;
-			db.SaveChanges();
-			return Ok();
 
-		}
+        [HttpGet]
+        public IHttpActionResult GetUsers()
+        {
+            //((DefaultContractResolver)config.Formatters.JsonFormatter.SerializerSettings.ContractResolver).IgnoreSerializableAttribute = true;
+            var users = UserManager.Users.ToList();
+            if (users == null)
+            {
+                return BadRequest();
+            }
+            return Ok(users);
+        }
+        [HttpGet]
+        public IHttpActionResult GetAUser(string id)
+        {
+            var user = UserManager.Users.Where(i => i.Id == id).FirstOrDefault();
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+        [HttpDelete]
+        public IHttpActionResult DeleteAUser(string id)
+        {
+            var user = db.Users.Where(i => i.Id == id).FirstOrDefault();
+            if (user == null)
+            {
+                return NotFound();
+            }
+            db.Users.Remove(user);
+            db.SaveChanges();
+            return Ok();
+        }
+        [HttpPut]
+        public IHttpActionResult UpdateUser(UpdateUserViewModel userViewModel)
+        {
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            var id = User.Identity.GetUserId();
+            var user = db.Users.Where(i => i.Id == id).FirstOrDefault();
+            user.Name = userViewModel.Name;
+            user.Email = userViewModel.Email;
+            user.Location = userViewModel.Location;
+            user.Contact = userViewModel.Contact;
+            user.Photo = userViewModel.Photo;
+            db.SaveChanges();
+            return Ok();
+
+        }
 
         #region Helpers
 
