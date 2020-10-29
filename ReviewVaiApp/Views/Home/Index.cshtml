@@ -1043,7 +1043,7 @@
 
                                 console.log(111111111111)
                                 comments.push(`              <div class="col-md-12">
-                                                                                                                                <div class="media"> <img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" src="https://i.imgur.com/stD0Q19.jpg" />
+                                                                                                                                <div class="media"> <img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" src="${postcomment[i].ApplicationUser.Photo}" />
                                                                                                                                     <div class="media-body">
                                                                                                                                         <div class="row">
                                                                                                                                             <div class="col-12 d-flex">
@@ -1062,7 +1062,7 @@
                                                                                                                                 </div>
                                                                                                                             <div class="cardbox-comments " style="width:90%;">
                                                                                                                                 <span class="comment-avatar float-left">
-                                                                                                                                    <a href=""><img class=" mr-3 rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/6.jpg" alt="..."></a>
+                                                                                                                                    <a href=""><img class=" mr-3 rounded-circle" src="${postcomment[i].ApplicationUser.Photo}" alt="..."></a>
                                                                                                                                 </span>
                                                                                                                              <div class="row" >
                                                                                                                                 <div class="input-group">
@@ -1077,7 +1077,7 @@
                             else {
                                 console.log(22222222222222)
                                 for (var j = 0; j < postcomment[i].SubComments.length; j++) {
-                                    subcomment.push(` <div class="media mt-2"> <a class="pr-3" href="#"><img class="rounded-circle" alt="Bootstrap Media Another Preview" src="https://i.imgur.com/xELPaag.jpg" /></a>
+                                    subcomment.push(` <div class="media mt-2"> <a class="pr-3" href="#"><img class="rounded-circle" alt="Bootstrap Media Another Preview" src="${postcomment[i].SubComments[j].ApplicationUser.Photo}" /></a>
                                                                                                                                             <div class="media-body">
                                                                                                                                                 <div class="row">
                                                                                                                                                     <div class="col-12 d-flex" >
@@ -1097,7 +1097,7 @@
                                 var commentandsubcomment = subcomment.slice(0, -1).join('') + '  ' + subcomment.slice(-1);
                                 var subcomment = [];
                                 comments.push(`<div class="col-md-12">
-                                                                                                                                <div class="media"> <img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" src="https://i.imgur.com/stD0Q19.jpg" />
+                                                                                                                                <div class="media"> <img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" src="${postcomment[i].ApplicationUser.Photo}" />
                                                                                                                                     <div class="media-body">
                                                                                                                                         <div class="row">
                                                                                                                                             <div class="col-12 d-flex">
@@ -1117,7 +1117,7 @@
                                                                                                                                 </div>
                                                                                                                             <div class="cardbox-comments " style="width:90%;">
                                                                                                                                 <span class="comment-avatar float-left">
-                                                                                                                                    <a href=""><img class=" mr-3 rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/6.jpg" alt="..."></a>
+                                                                                                                                    <a href=""><img class=" mr-3 rounded-circle" src="${postcomment[i].ApplicationUser.Photo}" alt="..."></a>
                                                                                                                                 </span>
                                                                                                                                 <div class="row " >
                                                                                                                                 <div class="input-group">
@@ -1348,7 +1348,7 @@
                                 </div><!--/ dropdown -->
                                 <div class="media m-0">
                                     <div class="d-flex mr-3">
-                                        <a href="#"><img class="img-fluid rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/2.jpg" alt="User"></a>
+                                        <a href="#"><img class="img-fluid rounded-circle" src="${review.ApplicationUser.Photo}" alt="User"></a>
                                     </div>
                                     <div class="media-body">
                                         <p class="m-0">
@@ -1423,7 +1423,7 @@
                             </div><!--/ cardbox-base -->
                             <div class="cardbox-comments " style="width:90%;">
                                 <span class="comment-avatar float-left">
-                                    <a href=""><img class=" mr-3 rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/6.jpg" alt="..."></a>
+                                    <a href=""><img class=" mr-3 rounded-circle" src="${review.ApplicationUser.Photo}" alt="..."></a>
                                 </span>
                                 <div class="row" >
                                     <div class="input-group">

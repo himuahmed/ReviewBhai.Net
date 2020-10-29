@@ -130,11 +130,8 @@
 
 <script type="text/javascript">
     var id = $('#userId').val();
-    console.log(id);
     $(document).ready(function () {
 
-        putUrl = 'http://localhost:55407/api/Account/UpdateUser/' + String(id);
-        console.log(putUrl);
 
         if (sessionStorage.getItem('accessToken') == null) {
             //window.location.href = "http://reviewbhai.somee.com/user/signin";
