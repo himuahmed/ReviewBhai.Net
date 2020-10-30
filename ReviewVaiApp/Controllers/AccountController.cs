@@ -440,20 +440,35 @@ namespace ReviewVaiApp.Controllers
             return Ok();
         }
         [HttpPut]
-        public IHttpActionResult UpdateUser(UpdateUserViewModel userViewModel)
+        public IHttpActionResult UpdateUser(string id, UpdateUserViewModel userViewModel)
         {
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-            var id = User.Identity.GetUserId();
+            //var id = User.Identity.GetUserId();
             var user = db.Users.Where(i => i.Id == id).FirstOrDefault();
-            user.Name = userViewModel.Name;
-            user.Email = userViewModel.Email;
-            user.Location = userViewModel.Location;
-            user.Contact = userViewModel.Contact;
-            user.Photo = userViewModel.Photo;
+            if (userViewModel.Name != null)
+            {
+                user.Name = userViewModel.Name;
+            }
+            if (userViewModel.Email != null)
+            {
+                user.Email = userViewModel.Email;
+            }
+            if (userViewModel.Location != null)
+            {
+                user.Location = userViewModel.Location;
+            }
+            if (userViewModel.Contact > 0)
+            {
+                user.Contact = userViewModel.Contact;
+            }
+            if (userViewModel.Photo != null)
+            {
+                user.Photo = userViewModel.Photo;
+            }
             db.SaveChanges();
             return Ok();
 
