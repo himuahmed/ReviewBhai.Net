@@ -32,6 +32,10 @@ div.sticky {
 #content {
     height: 40rem;
 }
+#imagecontent {
+    height: 27rem;
+}
+
 
 #left {
     float: left;

@@ -331,12 +331,15 @@
     <Content Include="Content\login_signup\vendor\select2\select2.min.css" />
     <Content Include="Content\login_signup\vendor\select2\select2.min.js" />
     <Content Include="Content\profile\profileLayout.css" />
+    <Content Include="Content\review\reviewImages.css" />
     <Content Include="Content\review\comments-and-reply.css" />
     <Content Include="Content\review\comments-and-reply.js" />
     <Content Include="Content\review\image_upload\reviewImage.css" />
     <Content Include="Content\review\image_upload\reviewImage.js" />
     <Content Include="Content\review\multiselectbox.js" />
     <Content Include="Content\review\review.css" />
+    <Content Include="Content\review\reviewImageGallery.css" />
+    <Content Include="Content\review\reviewImageGallery.js" />
     <Content Include="Content\review\reviewStar.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
