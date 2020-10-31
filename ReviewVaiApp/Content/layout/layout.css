@@ -12,6 +12,14 @@ html {
     z-index: 1030;
 }
 
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: yellow;
+}
+
+
 ::-webkit-scrollbar {
     width: 0px; /* Remove scrollbar space */
     background: transparent; /* Optional: just make scrollbar invisible */
@@ -27,15 +35,16 @@ html {
 
 #left {
     float: left;
-    width: 30%;
+    width: 70%;
     background-color: #FFFFFF;
-    max-height: 100%;
+    max-height: 150%;
+    overflow-y: auto;
     scrollbar-width: none;
-    padding-right:5%
+    padding-right: 5%
 }
 
 
-#middle {
+/*#middle {
     float: left;
     width: 40%;
     background-color: #FFFFFF;
@@ -44,7 +53,7 @@ html {
     padding-left: 20px;
     padding-right: 20px;
     scrollbar-width: none;
-}
+}*/
 
 #right {
     float: left;

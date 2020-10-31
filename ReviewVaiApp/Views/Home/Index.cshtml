@@ -1332,7 +1332,7 @@
 <section class="hero">
 <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-10 offset-lg-1"">
+                    <div class="col-lg-6 offset-lg-6"">
                         <div class="cardbox shadow-lg bg-white">
                             <div class="cardbox-heading">
                                 <!-- START dropdown-->
@@ -1474,12 +1474,16 @@
 
 
     <div id="content">
-        <div id="left" style="padding-top:1%;">
+        @*<div id="left" style="padding-top:1%;">
             Profile summery will be shown here.
-        </div>
+        </div>*@
 
-        <div id="middle" style="padding-top:1%;">
-            <div class="row col-lg-10 offset-lg-1" >
+        <div id="left" style="padding-top:1%;">
+            <div  style="padding-top:1%;" class="sticky row col-lg-4 offset-lg-1">
+                Profile summery will be shown here.
+            </div>
+
+            <div class="row col-lg-6 offset-lg-6">
                 <div class="input-group">
                     <input class="form-control" type="text" placeholder="Write a review . . . ." data-toggle="modal" onclick="buttonUpdate(this)" data-target="#myModal1">
                 </div>
@@ -1490,48 +1494,47 @@
         </div>
 
         <div id="right" style="padding-top:1%;">
-          
-            <div class="container">
 
-                    <div class="row" id="ads">
-                        <!-- Category Card -->
-                        <div class="col-md-6">
-                            <div class="card rounded">
-                                <div class="card-image">
-                                    
-                                    <span class="card-notify-year">50%</span>
-                                    <img class="img-fluid" style="padding-bottom:5px;" src="https://i.ibb.co/1b6k0W4/steak.jpg" alt="Alternate Text" />
-                                </div>
-                                <div class="card-image-overlay m-auto">
-                                    <span class="card-detail-badge">Beef</span>
-                                    <span class="card-detail-badge">$28</span>
-                                </div>
-                                <div class="card-body text-center">
-                                    <div>
-                                        <h5>Steak House</h5>
-                                    </div>
-                                </div>
+            <div class="container">
+                <div class="row" id="ads">
+                    <!-- Category Card -->
+                    <div class="row col-lg-6 offset-lg-1">
+                        <div class="card rounded">
+                            <div class="card-image">
+
+                                <span class="card-notify-year">50%</span>
+                                <img class="img-fluid" style="padding-bottom:5px;" src="https://i.ibb.co/1b6k0W4/steak.jpg" alt="Alternate Text" />
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card rounded">
-                                <div class="card-image">
-                                    
-                                    <span class="card-notify-year">30%</span>
-                                    <img class="img-fluid" style="padding-bottom:5px;" src="https://i.ibb.co/HNsCGH7/burger.webp" alt="Alternate Text" />
-                                </div>
-                                <div class="card-image-overlay m-auto">
-                                    <span class="card-detail-badge">Unlimited Coke</span>
-                                    <span class="card-detail-badge">$10</span>
-                                </div>
-                                <div class="card-body text-center">
-                                    <div>
-                                        <h5>Burger King</h5>
-                                    </div>
+                            <div class="card-image-overlay m-auto">
+                                <span class="card-detail-badge">Beef</span>
+                                <span class="card-detail-badge">$28</span>
+                            </div>
+                            <div class="card-body text-center">
+                                <div>
+                                    <h5>Steak House</h5>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="row col-lg-6 offset-lg-6">
+                        <div class="card rounded">
+                            <div class="card-image">
+
+                                <span class="card-notify-year">30%</span>
+                                <img class="img-fluid" style="padding-bottom:5px;" src="https://i.ibb.co/HNsCGH7/burger.webp" alt="Alternate Text" />
+                            </div>
+                            <div class="card-image-overlay m-auto">
+                                <span class="card-detail-badge">Unlimited Coke</span>
+                                <span class="card-detail-badge">$10</span>
+                            </div>
+                            <div class="card-body text-center">
+                                <div>
+                                    <h5>Burger King</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1542,7 +1545,7 @@
     
         <div class="modal fade" id="myModal1">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content" >
                     <div class="modal-body">
                         <div class="content-section" id="reviewForm">
                             @RenderPage("~/Views/ReviewGetPost/CreateReview.cshtml")
@@ -1553,6 +1556,7 @@
                 </div>
             </div>
         </div>
+    
     
 
 
