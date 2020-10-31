@@ -1364,7 +1364,8 @@
                             </div><!--/ cardbox-heading -->
                             <div class="cardbox-item">
                                                 @*//////////////////////////////////////////////////*@
-${reviewImageTemplate()}
+${reviewImageStyle(review)}
+${reviewImageTemplate(review)}
                                                 @*//////////////////////////////////////////////////*@
 
 
@@ -1619,75 +1620,100 @@ ${reviewImageTemplate()}
         <div id="divErrorText"></div>
     </div>
     <script>
-        function reviewImages() {
-            var slideIndex = 1;
-            showSlides(slideIndex);
+        //function reviewImages() {
+        //    var slideIndex = 1;
+        //    showSlides(slideIndex);
 
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
+        //    function plusSlides(n) {
+        //        showSlides(slideIndex += n);
+        //    }
+
+        //    function currentSlide(n) {
+        //        showSlides(slideIndex = n);
+        //    }
+
+        //    function showSlides(n) {
+        //        var i;
+        //        var slides = document.getElementsByClassName("mySlides");
+        //        var dots = document.getElementsByClassName("demo");
+        //        var captionText = document.getElementById("caption");
+        //        if (n > slides.length) { slideIndex = 1 }
+        //        if (n < 1) { slideIndex = slides.length }
+        //        for (i = 0; i < slides.length; i++) {
+        //            slides[i].style.display = "none";
+        //        }
+        //        for (i = 0; i < dots.length; i++) {
+        //            dots[i].className = dots[i].className.replace(" active", "");
+        //        }
+        //        slides[slideIndex - 1].style.display = "block";
+        //        dots[slideIndex - 1].className += " active";
+        //    }
+
+        //}
+
+        function reviewImageTemplate(review) {
+
+
+            console.log("reviewwwwwwwwwww phohots.................................................................");
+            if (review.Photos == null) {
+                return ``;
             }
-
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-                var i;
-                var slides = document.getElementsByClassName("mySlides");
-                var dots = document.getElementsByClassName("demo");
-                var captionText = document.getElementById("caption");
-                if (n > slides.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = slides.length }
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
+            else {
+                var imageSlides = [];
+                var images = [];
+                var imageLabel = [];
+                var reviewImages;
+                for (var i = 0; i < review.Photos.length; i++) {
+                    if (imageSlides.length == 0) {
+                        imageSlides.push(`<input type="radio" name="r" id="r${review.Photos[i].Id}" checked>` );
+                        images.push(`<div class="slide s1"><img src="${review.Photos[i].Url}" alt=""> </div>`);
+                        imageLabel.push(`<label for="r${review.Photos[i].Id}" class="bar"></label>`);
+                    }
+                    else {
+                        imageSlides.push(`<input type="radio" name="r" id="r${review.Photos[i].Id}">`);
+                        images.push(`<div class="slide"><img src="${review.Photos[i].Url}" alt=""> </div>`);
+                        imageLabel.push(`<label for="r${review.Photos[i].Id}" class="bar"></label>`);
+                    }
                 }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " active";
+
             }
+            
+            var slides = imageSlides.slice(0, -1).join("") + imageSlides.slice(-1);
+            var imageSources = images.slice(0, -1).join("") + images.slice(-1);
+            var labels = imageLabel.slice(0, -1).join("") + imageLabel.slice(-1);
+
+            console.log(slides);
+            console.log(imageSources);
+            console.log(labels);
+
+            var galleryTemplate = '<div class="reviewImageContainer"><div class="slidershow middle"><div class="slides">' + slides + imageSources + '</div><div class="navigation">'+ labels + '</div></div></div>';
+
+            return galleryTemplate;
 
         }
 
-        function reviewImageTemplate() {
-            return `
-                <div class="reviewImageContainer">
-                    <div class="slidershow middle">
+        function reviewImageStyle(review) {
+            if (review.Photos == null) {
+                return ``;
+            }
+            else {
+                var style = [];
+                for (var i = 0; i < review.Photos.length; i++) {
 
-                        <div class="slides">
-                            <input type="radio" name="r" id="r1" checked>
-                            <input type="radio" name="r" id="r2">
-                            <input type="radio" name="r" id="r3">
-                            <input type="radio" name="r" id="r4">
-                            <input type="radio" name="r" id="r5">
-                            <div class="slide s1">
-                                <img src="https://i.ibb.co/kcsM5Zh/1111111111111111111.jpg" alt="">
-                            </div>
-                            <div class="slide">
-                                <img  src="https://i.ibb.co/rGpTP2F/ss.png" alt="">
-                            </div>
-                            <div class="slide">
-                                <img  src="https://i.ibb.co/kcsM5Zh/1111111111111111111.jpg" alt="">
-                            </div>
-                            <div class="slide">
-                                <img  src="https://i.ibb.co/jkjMhMS/random.jpg" alt="">
-                            </div>
-                            <div class="slide">
-                                <img  src="https://i.ibb.co/kcsM5Zh/1111111111111111111.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="navigation">
-                            <label for="r1" class="bar"></label>
-                            <label for="r2" class="bar"></label>
-                            <label for="r3" class="bar"></label>
-                            <label for="r4" class="bar"></label>
-                            <label for="r5" class="bar"></label>
-                        </div>
-                    </div>
-                </div>
 
-                    `
+                    if (style.length == 0) {
+                        style.push(`#r${review.Photos[i].Id}:checked ~ .s1 {margin-left: ${(i) * 20};}`);
+                    }
+                    else {
+                        style.push(`#r${review.Photos[i].Id}:checked ~ .s1 {margin-left: -${(i) * 20}%;}`);
+                    }
+                    
+                }
+                
+            }
+            var mainStyle = style.slice(0, -1).join(" ") + style.slice(-1);
+            var value = `<style type="text/css" scoped> `+ mainStyle + `</style>`;
+            return value;
         }
     </script>
 
@@ -1758,35 +1784,35 @@ ${reviewImageTemplate()}
         //////////////////////////////////////////////////
 
 
-        var slideIndex = 1;
-        showSlides(slideIndex);
+        //var slideIndex = 1;
+        //showSlides(slideIndex);
 
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
+        //function plusSlides(n) {
+        //    showSlides(slideIndex += n);
+        //}
 
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
+        //function currentSlide(n) {
+        //    showSlides(slideIndex = n);
+        //}
 
 
 
-        function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("demo");
-            var captionText = document.getElementById("caption");
-            if (n > slides.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = slides.length }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-        }
+        //function showSlides(n) {
+        //    var i;
+        //    var slides = document.getElementsByClassName("mySlides");
+        //    var dots = document.getElementsByClassName("demo");
+        //    var captionText = document.getElementById("caption");
+        //    if (n > slides.length) { slideIndex = 1 }
+        //    if (n < 1) { slideIndex = slides.length }
+        //    for (i = 0; i < slides.length; i++) {
+        //        slides[i].style.display = "none";
+        //    }
+        //    for (i = 0; i < dots.length; i++) {
+        //        dots[i].className = dots[i].className.replace(" active", "");
+        //    }
+        //    slides[slideIndex - 1].style.display = "block";
+        //    dots[slideIndex - 1].className += " active";
+        //}
 
 
 
