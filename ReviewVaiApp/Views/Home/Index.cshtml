@@ -1315,13 +1315,12 @@
                                                         <li> <a class="dropdown-item" href="#">Hide post</a></li>
                                                         <li id="editPost"  onclick="buttonUpdate(this,${reviewId})"> <a class="dropdown-item" data-toggle="modal" data-target="#myModal1" href="#" onclick="postEdit(${reviewId},'${reviewerIdS}')">Edit</a></li>
                                                         <li><a class="dropdown-item" href="#" onclick="deletePost(${reviewId})" >Delete</a></li>
-                                                        <li><a class="dropdown-item" href="#">Save</a></li>
+                                                        
                                                     </ul>`
             }
             else {
                 return `             <ul class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                                    <li> <a class="dropdown-item" href="#">Hide post</a></li>
-                                                    <li><a class="dropdown-item" href="#">Save</a></li>
+                                                    <li> <a class="dropdown-item" href="#">Hide post</a></li>                                                  
                                                     <li> <a class="dropdown-item" href="#">Report</a></li>
                                                     </ul>`
             }
